@@ -1,0 +1,155 @@
+/* Стили для выдвижного меню */
+#sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1001; /* Увеличиваем z-index, чтобы меню было выше заголовка */
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px; /* Отступ сверху, равный высоте заголовка */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #2979ff;
+    display: block;
+    transition: 0.3s;
+}
+
+#sidebar a:hover {
+    color: #0d47a1;
+}
+
+#sidebar .closebtn {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 36px;
+    color: #2979ff;
+}
+
+/* Стили для блока пользователя */
+.user-block {
+    text-align: left;
+    padding: 20px;
+    padding-top: 0;
+}
+
+.user-block .initials {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #2979ff;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.user-block .name {
+    font-size: 18px;
+    color: #333;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.divider {
+    border-bottom: 1px solid #d3d0d0;
+    margin: 15px 0;
+}
+
+.logout-button {
+    background-color: #2979ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 5px;
+    width: calc(100% - 40px);
+    margin-left: 20px;
+}
+
+.logout-button:hover {
+    background-color: #0d47a1;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+/* Стили для кнопки меню */
+#menu-button {
+    font-size: 30px;
+    cursor: pointer;
+    color: #2979ff;
+    width: 60px;
+}
+
+/* Линия под меню */
+.line-under-menu {
+    border-bottom: 1px solid #d3d0d0;
+    margin-top: 10px;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Стили для выпадающего списка */
+.dropdown-content {
+    display: none;
+    padding-left: 20px;
+}
+
+.dropdown-content a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #2979ff;
+    display: block;
+    transition: 0.3s;
+}
+
+.dropdown-content a:hover {
+    color: #0d47a1;
+}
+
+.dropdown .arrow {
+    margin-left: 8px;
+    transition: transform 0.3s;
+}
+
+/* Стили для фиксированного заголовка */
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 1000; /* Оставляем z-index ниже, чем у #sidebar */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+#line-under-menu {
+    height: 1px;
+    background-color: #ccc;
+    margin-top: 8px;
+    width: 100%;
+}
