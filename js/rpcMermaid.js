@@ -28,25 +28,20 @@ document.addEventListener('DOMContentLoaded', function () {
             defaultDate: today,
             maxDate: today
         });
-    } else {
-        console.error('Flatpickr library is not loaded.');
     }
 });
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('Страница загружена — ждём рендер Mermaid');
 
     function processMermaidText() {
         const svgTexts = document.querySelectorAll('.mermaid svg text');
-        console.log(`Найдено текстов в диаграмме: ${svgTexts.length}`);
 
         svgTexts.forEach((text) => {
             const originalText = text.textContent;
             const index = originalText.indexOf('id_event:');
 
             if (index !== -1) {
-                console.log(`Текст с id_event найден: ${originalText}`);
                 text.setAttribute('data-original-text', originalText);
 
                 // Обрезка текста до "id_event:"
@@ -90,10 +85,8 @@ document.addEventListener('DOMContentLoaded', function () {
     function waitForMermaidRender() {
         const mermaidSvg = document.querySelector('.mermaid svg');
         if (mermaidSvg) {
-            console.log('Mermaid диаграмма отрендерена!');
             requestAnimationFrame(() => processMermaidText());
         } else {
-            console.log('Ожидаем рендер Mermaid...');
             setTimeout(waitForMermaidRender, 100);
         }
     }
@@ -109,10 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const mermaidContainer = document.querySelector('.mermaid');
     if (mermaidContainer) {
         observer.observe(mermaidContainer, { childList: true, subtree: true });
-        console.log('Наблюдатель запущен для контейнера Mermaid!');
         mermaid.run(); // Явно запускаем Mermaid рендеринг
-    } else {
-        console.warn('Контейнер Mermaid не найден!');
     }
 });
 
@@ -132,7 +122,6 @@ function handleTextClick(textElement) {
                     showBootstrapModal(serverResponse);
                 })
                 .catch(error => {
-                    console.error('Error sending data:', error);
                     showBootstrapModal({ code: 'Ошибка', data: 'Не удалось получить данные.' });
                 });
         }
@@ -255,7 +244,6 @@ function showBootstrapModal(responseData) {
                 // Устанавливаем высоту CodeMirror равной высоте контейнера
                 editor.setSize(null, jsonEditorContainer.clientHeight);
             } catch (error) {
-                console.error('Error parsing or formatting JSON:', error);
                 // Если данные некорректны, отображаем их как есть
                 CodeMirror(jsonEditorContainer, {
                     value: data, // Отображаем данные как есть
@@ -266,8 +254,6 @@ function showBootstrapModal(responseData) {
                     autoRefresh: true
                 });
             }
-        } else {
-            console.error('Container "jsonEditorContainer" is missing.');
         }
     });
 
