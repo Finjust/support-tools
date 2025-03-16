@@ -28,18 +28,12 @@ document.addEventListener('DOMContentLoaded', function () {
             defaultDate: today,
             maxDate: today
         });
-    } else {
-        console.error('Flatpickr library is not loaded.');
     }
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('Страница загружена — ждём рендер Mermaid');
-
     function processMermaidText() {
         const svgTexts = document.querySelectorAll('.mermaid svg text');
-        console.log(`Найдено текстов в диаграмме: ${svgTexts.length}`);
-
         svgTexts.forEach((text) => {
             const originalText = text.textContent;
             const index = originalText.indexOf('id_event:');
@@ -73,6 +67,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     finalTextContent = finalTextContent.replace(
                         warnMatch[0],
                         `<tspan style="fill: red;">${warnMatch[0]}</tspan>`
+                    );
+                }
+
+                const errorMatch = truncatedText.match(/\berror\b/);
+                if (errorMatch) {
+                    finalTextContent = finalTextContent.replace(
+                        errorMatch[0],
+                        `<tspan style="fill: red;">${errorMatch[0]}</tspan>`
                     );
                 }
 
@@ -117,9 +119,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const mermaidContainer = document.querySelector('.mermaid');
     if (mermaidContainer) {
         observer.observe(mermaidContainer, { childList: true, subtree: true });
-        console.log('Наблюдатель запущен для контейнера Mermaid!');
-    } else {
-        console.warn('Контейнер Mermaid не найден!');
     }
 });
 
@@ -262,7 +261,6 @@ function showBootstrapModal(responseData) {
                 // Устанавливаем высоту CodeMirror равной высоте контейнера
                 editor.setSize(null, jsonEditorContainer.clientHeight);
             } catch (error) {
-                console.error('Error parsing or formatting JSON:', error);
                 // Если данные некорректны, отображаем их как есть
                 CodeMirror(jsonEditorContainer, {
                     value: data, // Отображаем данные как есть
@@ -273,8 +271,6 @@ function showBootstrapModal(responseData) {
                     autoRefresh: true
                 });
             }
-        } else {
-            console.error('Container "jsonEditorContainer" is missing.');
         }
     });
 
