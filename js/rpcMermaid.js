@@ -90,6 +90,21 @@ document.addEventListener('DOMContentLoaded', function () {
             setTimeout(waitForMermaidRender, 100);
         }
     }
+
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.type === 'childList') {
+                waitForMermaidRender();
+            }
+        });
+    });
+
+    const mermaidContainer = document.querySelector('.mermaid');
+    if (mermaidContainer) {
+        observer.observe(mermaidContainer, { childList: true, subtree: true });
+        mermaid.run(); // Явно запускаем Mermaid рендеринг
+    } else {
+    }
 });
 
 
