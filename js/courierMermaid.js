@@ -77,9 +77,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     );
                 }
 
-                const line = truncatedText.match(/\b - \b/);
-                if (!line) {
-                    finalTextContent = `<tspan style="fill: red;">!!!</tspan>`
+                // Проверяем наличие знака "-"
+                if (!finalTextContent.includes(' - ')) {
+                    // Добавляем маркер и подсвечиваем красным, если нет знака "-"
+                    finalTextContent = `<tspan style="fill: red; font-weight: bold;">!!!</tspan> ${finalTextContent}`;
                 }
 
                 // Добавляем обновлённый текст в элемент
