@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     );
                 }
 
-                const line = truncatedText.match(/\b-\b/);
+                const line = truncatedText.match(/\b - \b/);
                 if (!line) {
                     finalTextContent = `<tspan style="fill: red;">!!!</tspan>`
                 }
