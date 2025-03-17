@@ -77,6 +77,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     );
                 }
 
+                // Проверяем наличие знака "-"
+                if (!finalTextContent.includes('-')) {
+                    // Добавляем маркер и подсвечиваем красным, если нет знака "-"
+                    finalTextContent = `<tspan style="fill: red; font-weight: bold;">!!!</tspan> ${finalTextContent}`;
+                }
+
                 // Добавляем обновлённый текст в элемент
                 text.innerHTML = finalTextContent;
 
@@ -119,7 +125,6 @@ document.addEventListener('DOMContentLoaded', function () {
         observer.observe(mermaidContainer, { childList: true, subtree: true });
     }
 });
-
 
 // Функция для обработки клика по тексту
 function handleTextClick(textElement) {
