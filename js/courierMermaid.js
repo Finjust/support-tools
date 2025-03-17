@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function () {
             const index = originalText.indexOf('id_event:');
 
             if (index !== -1) {
-                console.log(`Текст с id_event найден: ${originalText}`);
                 text.setAttribute('data-original-text', originalText);
 
                 // Обрезка текста до "id_event:"
@@ -108,7 +107,6 @@ document.addEventListener('DOMContentLoaded', function () {
             if (mutation.type === 'childList') {
                 const mermaidSvg = document.querySelector('.mermaid svg');
                 if (mermaidSvg) {
-                    console.log('Mermaid диаграмма отрендерена!');
                     setTimeout(processMermaidText, 100); // Даем немного времени на рендер
                 }
             }
