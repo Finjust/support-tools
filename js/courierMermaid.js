@@ -32,49 +32,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-    function updateActorStyles() {
-        // Находим все элементы line внутри диаграммы
-        const lines = document.querySelectorAll('.mermaid line');
-
-        lines.forEach(line => {
-            // Преобразуем id линии в актеров
-            const actorGroup = line.closest('g');
-            const actorName = actorGroup ? actorGroup.querySelector('text.actor')?.textContent : null;
-
-            if (!actorName) return;
-
-            // Применяем стили в зависимости от имени актера
-            let color = "#999"; // Стандартный цвет
-            let thickness = "2px"; // Стандартная толщина
-
-            switch (actorName.trim().toLowerCase()) {
-                case "yandex":
-                    color = "#FCE000"; // Желтый
-                    thickness = "3px";
-                    break;
-                case "adr":
-                    color = "orange";
-                    thickness = "3px";
-                    break;
-                case "dostavista":
-                    color = "pink";
-                    thickness = "3px";
-                    break;
-                case "dostavista_v2":
-                    color = "#fd1a3c"; // Бледно-розовый
-                    thickness = "3px";
-                    break;
-                case "sber":
-                    color = "green";
-                    thickness = "3px";
-                    break;
-            }
-
-            // Устанавливаем цвет и толщину для линий
-            line.style.stroke = color;
-            line.style.strokeWidth = thickness;
-        });
-    }
     function processMermaidText() {
         const svgTexts = document.querySelectorAll('.mermaid svg text');
         svgTexts.forEach((text) => {
