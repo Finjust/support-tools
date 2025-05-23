@@ -187,7 +187,7 @@ function showBootstrapModal(responseData) {
             <div class="modal-dialog modal-lg modal-dialog-scrollable"> <!-- Классы для больших окон -->
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Информация о запросе: ${code}</h5>
+                        <h5 class="modal-title">Информация о запросе:\n ${code}</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body" style="display: flex; flex-direction: column; height: 80vh;"> <!-- Настройка высоты -->
